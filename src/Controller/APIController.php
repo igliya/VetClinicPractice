@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\CheckupRepository;
+use App\Repository\ServiceRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
@@ -80,9 +81,30 @@ class APIController extends AbstractController
     /**
      * @Route("/popular", name="popular_services_statistic", methods={"GET"})
      */
-    public function getPopularServicesStatistic(Request $request): Response
+    public function getPopularServicesStatistic(Request $request, ServiceRepository $serviceRepository): Response
     {
-        return $this->json(['method' => 'get popular services statistic']);
+        $services = $serviceRepository->findAll();
+        $servicesNames = [];
+        foreach ($services as $service) {
+            $servicesNames[] = $service->getName();
+        }
+
+        $data = [];
+        $dataCount = count($servicesNames);
+        for ($i = 0; $i < $dataCount; $i++) {
+            $data[] = random_int(1000, 5000);
+        }
+
+        $mockCurrentYearData = [
+            'labels' => $servicesNames,
+            'data' => $data
+        ];
+        $mockYearsData = [
+            'labels' => ['2019 (' . $servicesNames[random_int(0, $dataCount)] . ')', '2020 (' . $servicesNames[random_int(0, $dataCount)] . ')', '2021 (' . $servicesNames[random_int(0, $dataCount)] . ')', '2022 (' . $servicesNames[random_int(0, $dataCount)] . ')'],
+            'data' => [random_int(10000, 100000), random_int(10000, 100000), random_int(10000, 100000), random_int(10000, 100000)]
+        ];
+
+        return $this->json(['current_year' => $mockCurrentYearData, 'years' => $mockYearsData]);
     }
 
     /**

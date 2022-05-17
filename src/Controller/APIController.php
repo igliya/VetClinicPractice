@@ -42,7 +42,7 @@ class APIController extends AbstractController
             $doctorsResponse[] = $doctorResponse;
         }
 
-        return $this->json(['doctors' => $doctorsResponse], 200,
+        return $this->json($doctorsResponse, 200,
             [
                 'Access-Control-Expose-Headers' => 'X-Total-Count',
                 'X-Total-Count' => count($doctorsResponse)

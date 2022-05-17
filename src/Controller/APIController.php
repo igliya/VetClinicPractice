@@ -61,11 +61,20 @@ class APIController extends AbstractController
     }
 
     /**
-     * @Route("/doctors/{id}", name="doctor_statistic_by_id", methods={"GET"})
+     * @Route("/doctors/{id<\d+>}", name="doctor_statistic_by_id", methods={"GET"})
      */
     public function getDoctorStatisticById(Request $request, int $id): Response
     {
-        return $this->json(['method' => 'get doctor statistic by id' . $id]);
+        $mockCurrentYearData = [
+            'labels' => ['Январь', 'Февраль', 'Март', 'Апрель', 'Май'],
+            'data' => [2141, 3123, 4232, 3534, 3534]
+        ];
+        $mockYearsData = [
+            'labels' => ['2019', '2020', '2021', '2022'],
+            'data' => [634646, 245346, 345634, 523425]
+        ];
+
+        return $this->json(['current_year' => $mockCurrentYearData, 'years' => $mockYearsData]);
     }
 
     /**

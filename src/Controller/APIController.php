@@ -112,6 +112,16 @@ class APIController extends AbstractController
      */
     public function getClientReturns(Request $request): Response
     {
-        return $this->json(['method' => 'get client returns statistic']);
+        $data = [];
+        for($i = 0; $i < 5; $i++) {
+            $data[] = random_int(0, 100);
+        }
+
+        $mockData = [
+            'labels' => ['Доктор 1', 'Доктор 2', 'Доктор 3', 'Доктор 4', 'Доктор 5'],
+            'data' => $data
+        ];
+
+        return $this->json(['returns' => $mockData]);
     }
 }

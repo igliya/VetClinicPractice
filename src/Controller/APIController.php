@@ -22,7 +22,16 @@ class APIController extends AbstractController
      */
     public function getAverageStatistic(Request $request): Response
     {
-        return $this->json(['method' => 'average']);
+        $mockCurrentYearData = [
+            'labels' => ['Январь', 'Февраль', 'Март', 'Апрель', 'Май'],
+            'data' => [32141, 33123, 54232, 43534, 23534]
+        ];
+        $mockYearsData = [
+            'labels' => ['2019', '2020', '2021', '2022'],
+            'data' => [5634646, 6245346, 6345634, 4523425]
+        ];
+
+        return $this->json(['current_year' => $mockCurrentYearData, 'years' => $mockYearsData]);
     }
 
     /**

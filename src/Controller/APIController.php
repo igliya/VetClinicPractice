@@ -100,7 +100,7 @@ class APIController extends AbstractController
             'data' => $data
         ];
         $mockYearsData = [
-            'labels' => ['2019 (' . $servicesNames[random_int(0, $dataCount)] . ')', '2020 (' . $servicesNames[random_int(0, $dataCount)] . ')', '2021 (' . $servicesNames[random_int(0, $dataCount)] . ')', '2022 (' . $servicesNames[random_int(0, $dataCount)] . ')'],
+            'labels' => ['2019 (' . $servicesNames[random_int(0, $dataCount - 1)] . ')', '2020 (' . $servicesNames[random_int(0, $dataCount - 1)] . ')', '2021 (' . $servicesNames[random_int(0, $dataCount - 1)] . ')', '2022 (' . $servicesNames[random_int(0, $dataCount - 1)] . ')'],
             'data' => [random_int(10000, 100000), random_int(10000, 100000), random_int(10000, 100000), random_int(10000, 100000)]
         ];
 

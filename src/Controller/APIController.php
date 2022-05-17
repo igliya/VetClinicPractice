@@ -34,6 +34,7 @@ class APIController extends AbstractController
         $doctorsResponse = [];
         foreach ($doctors as $doctor) {
             $doctorResponse = [];
+            $doctorResponse['id'] = $doctor->getId();
             $doctorResponse['username'] = $doctor->getLogin();
             $doctorResponse['last_name'] = $doctor->getLastName();
             $doctorResponse['first_name'] = $doctor->getFirstName();

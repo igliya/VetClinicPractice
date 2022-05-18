@@ -89,19 +89,13 @@ class APIController extends AbstractController
             $servicesNames[] = $service->getName();
         }
 
-        $data = [];
-        $dataCount = count($servicesNames);
-        for ($i = 0; $i < $dataCount; $i++) {
-            $data[] = random_int(1000, 5000);
-        }
-
         $mockCurrentYearData = [
             'labels' => $servicesNames,
-            'data' => $data
+            'data' => [3783, 4794, 3940, 1130, 1179, 1379, 2257, 2253, 3327, 3770, 2530, 2844, 2879, 4531, 3733, 3517, 4742, 2966, 4103, 4956, 1295, 1727, 3337, 2752, 4355, 3743, 3119, 3639, 2484, 3396, 1852]
         ];
         $mockYearsData = [
-            'labels' => ['2019 (' . $servicesNames[random_int(0, $dataCount - 1)] . ')', '2020 (' . $servicesNames[random_int(0, $dataCount - 1)] . ')', '2021 (' . $servicesNames[random_int(0, $dataCount - 1)] . ')', '2022 (' . $servicesNames[random_int(0, $dataCount - 1)] . ')'],
-            'data' => [random_int(10000, 100000), random_int(10000, 100000), random_int(10000, 100000), random_int(10000, 100000)]
+            'labels' => ["2019 (Купирование ушных раковин у собак)", "2020 (Рентген)", "2021 (Вакцинация животного с проведением клинического осмотра)", "2022 (Взятие соскобов, мазков)"],
+            'data' => [48558, 40572, 96317, 12815]
         ];
 
         return $this->json(['current_year' => $mockCurrentYearData, 'years' => $mockYearsData]);
@@ -112,14 +106,9 @@ class APIController extends AbstractController
      */
     public function getClientReturns(Request $request): Response
     {
-        $data = [];
-        for($i = 0; $i < 5; $i++) {
-            $data[] = random_int(0, 100);
-        }
-
         $mockData = [
             'labels' => ['Доктор 1', 'Доктор 2', 'Доктор 3', 'Доктор 4', 'Доктор 5'],
-            'data' => $data
+            'data' => [10, 6, 58, 33, 52]
         ];
 
         return $this->json(['returns' => $mockData]);

@@ -25,11 +25,11 @@ class APIController extends AbstractController
     {
         $mockCurrentYearData = [
             'labels' => ['Январь', 'Февраль', 'Март', 'Апрель', 'Май'],
-            'data' => [32141, 33123, 54232, 43534, 23534]
+            'data' => [1500, 1212, 3123, 2000, 962]
         ];
         $mockYearsData = [
             'labels' => ['2019', '2020', '2021', '2022'],
-            'data' => [5634646, 6245346, 6345634, 4523425]
+            'data' => [783, 913, 1300, 1243]
         ];
 
         return $this->json(['current_year' => $mockCurrentYearData, 'years' => $mockYearsData]);
@@ -68,11 +68,11 @@ class APIController extends AbstractController
     {
         $mockCurrentYearData = [
             'labels' => ['Январь', 'Февраль', 'Март', 'Апрель', 'Май'],
-            'data' => [2141, 3123, 4232, 3534, 3534]
+            'data' => [1141, 1232, 3123, 2232, 962]
         ];
         $mockYearsData = [
             'labels' => ['2019', '2020', '2021', '2022'],
-            'data' => [634646, 245346, 345634, 523425]
+            'data' => [646, 1534, 1324, 1255]
         ];
 
         return $this->json(['current_year' => $mockCurrentYearData, 'years' => $mockYearsData]);
@@ -91,11 +91,11 @@ class APIController extends AbstractController
 
         $mockCurrentYearData = [
             'labels' => $servicesNames,
-            'data' => [3783, 4794, 3940, 1130, 1179, 1379, 2257, 2253, 3327, 3770, 2530, 2844, 2879, 4531, 3733, 3517, 4742, 2966, 4103, 4956, 1295, 1727, 3337, 2752, 4355, 3743, 3119, 3639, 2484, 3396, 1852]
+            'data' => [378, 479, 394, 113, 117, 137, 225, 225, 332, 377, 253, 284, 287, 453, 373, 351, 474, 296, 410, 495, 129, 172, 333, 275, 435, 374, 311, 363, 248, 339, 185]
         ];
         $mockYearsData = [
             'labels' => ["2019 (Купирование ушных раковин у собак)", "2020 (Рентген)", "2021 (Вакцинация животного с проведением клинического осмотра)", "2022 (Взятие соскобов, мазков)"],
-            'data' => [48558, 40572, 96317, 12815]
+            'data' => [485, 405, 631, 581]
         ];
 
         return $this->json(['current_year' => $mockCurrentYearData, 'years' => $mockYearsData]);

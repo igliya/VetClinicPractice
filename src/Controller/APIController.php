@@ -104,10 +104,16 @@ class APIController extends AbstractController
     /**
      * @Route("/returns", name="client_returns", methods={"GET"})
      */
-    public function getClientReturns(Request $request): Response
+    public function getClientReturns(Request $request, UserRepository $userRepository): Response
     {
+		$doctors = $userRepository->getDoctors();
+        $doctorsResponse = [];
+        foreach ($doctors as $doctor) {
+			$doctorsResponse[] = $doctor->getFirstName() . ' ' . $doctor->getLastName();
+        }
+		
         $mockData = [
-            'labels' => ['Доктор 1', 'Доктор 2', 'Доктор 3', 'Доктор 4', 'Доктор 5'],
+            'labels' => $doctorsResponse,
             'data' => [10, 6, 58, 33, 52]
         ];
 
